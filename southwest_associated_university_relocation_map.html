@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_27c813e09fb6872ebcc9ca1ef68bc00d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+</head>
+<body>
+    
+    
+<div style="position: fixed; 
+     top: 10px; left: 50px; width: 220px; height: 130px; 
+     background-color: white; border:2px solid grey; z-index:9999; 
+     font-size:14px; padding: 10px">
+     <p><strong>西南联大内迁路线图</strong></p>
+     <p><i class="fa fa-circle" style="color:red"></i> 海陆并用路线</p>
+     <p><i class="fa fa-circle" style="color:blue"></i> 教授团路线</p>
+     <p><i class="fa fa-circle" style="color:green"></i> 湘黔滇步行团路线</p>
+     <p><i class="fa fa-square" style="color:green"></i> 起点</p>
+     <p><i class="fa fa-square" style="color:red"></i> 终点</p>
+     <p><i class="fa fa-square" style="color:blue"></i> 途经点</p>
+</div>
+    
+             <h3 align="center" style="font-size:20px"><b>国立西南联合大学内迁路线图 (1938年)</b></h3>
+             
+    
+            <div class="folium-map" id="map_27c813e09fb6872ebcc9ca1ef68bc00d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_27c813e09fb6872ebcc9ca1ef68bc00d = L.map(
+                "map_27c813e09fb6872ebcc9ca1ef68bc00d",
+                {
+                    center: [26.0, 108.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2b8439d16c169cb857664ab04e0d8062 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_2b8439d16c169cb857664ab04e0d8062.addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var poly_line_2b5e064bcfcbde72450ce3d519baee3f = L.polyline(
+                [[28.2282, 112.9388], [23.1291, 113.2644], [22.3193, 114.1694], [20.8561, 106.6822], [21.0278, 105.8342], [25.0436, 102.7001]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+        var popup_7b595a4aa635bf8fd59b35e4f9d78c6d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa7f6f72efcc3708838780039be9cc23 = $(`<div id="html_aa7f6f72efcc3708838780039be9cc23" style="width: 100.0%; height: 100.0%;">路线: 海陆并用 (ID: 1)</div>`)[0];
+                popup_7b595a4aa635bf8fd59b35e4f9d78c6d.setContent(html_aa7f6f72efcc3708838780039be9cc23);
+            
+        
+
+        poly_line_2b5e064bcfcbde72450ce3d519baee3f.bindPopup(popup_7b595a4aa635bf8fd59b35e4f9d78c6d)
+        ;
+
+        
+    
+    
+            poly_line_2b5e064bcfcbde72450ce3d519baee3f.bindTooltip(
+                `<div>
+                     点击查看海陆并用路线详情
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1c3a440c10d7c587fe7c33420d3605cf = L.marker(
+                [28.2282, 112.9388],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_638ef48b3ff6287323ac205d2d7924f8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_492bb3519dc9c3dd2c8d42a7d6feaa49 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b9fcbf9b21bd9230d0939cab10fcbe90 = $(`<div id="html_b9fcbf9b21bd9230d0939cab10fcbe90" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>长沙</h4>             <p><b>路线:</b> 海陆并用</p>             <p><b>顺序:</b> 1</p>             <p><b>日期:</b> 1938-02</p>             <p><b>描述:</b> 联大师生撤离起点</p>         </div>         </div>`)[0];
+                popup_492bb3519dc9c3dd2c8d42a7d6feaa49.setContent(html_b9fcbf9b21bd9230d0939cab10fcbe90);
+            
+        
+
+        marker_1c3a440c10d7c587fe7c33420d3605cf.bindPopup(popup_492bb3519dc9c3dd2c8d42a7d6feaa49)
+        ;
+
+        
+    
+    
+            marker_1c3a440c10d7c587fe7c33420d3605cf.bindTooltip(
+                `<div>
+                     长沙 - 海陆并用
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1c3a440c10d7c587fe7c33420d3605cf.setIcon(icon_638ef48b3ff6287323ac205d2d7924f8);
+            
+    
+            var marker_0a484fced8a60a60755051f0c3728b05 = L.marker(
+                [23.1291, 113.2644],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_9c25510771fc1b9ca8ee7b20274e026d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1e53657f18df5bdcf2a77affcc27bc8e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_edd93c5d64a461b1102a8bf974b16f1d = $(`<div id="html_edd93c5d64a461b1102a8bf974b16f1d" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>广州</h4>             <p><b>路线:</b> 海陆并用</p>             <p><b>顺序:</b> 2</p>             <p><b>日期:</b> 1938-02</p>             <p><b>描述:</b> 中转站</p>         </div>         </div>`)[0];
+                popup_1e53657f18df5bdcf2a77affcc27bc8e.setContent(html_edd93c5d64a461b1102a8bf974b16f1d);
+            
+        
+
+        marker_0a484fced8a60a60755051f0c3728b05.bindPopup(popup_1e53657f18df5bdcf2a77affcc27bc8e)
+        ;
+
+        
+    
+    
+            marker_0a484fced8a60a60755051f0c3728b05.bindTooltip(
+                `<div>
+                     广州 - 海陆并用
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0a484fced8a60a60755051f0c3728b05.setIcon(icon_9c25510771fc1b9ca8ee7b20274e026d);
+            
+    
+            var marker_157c592ec0f92e889c0b3d5db0d51f54 = L.marker(
+                [22.3193, 114.1694],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_191517e5354e4244b9dbc11748aad547 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2c2cb2c3f3ff6d102dd4e675a122c3d0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_63dea2843322ffa9d2d23733f6329a27 = $(`<div id="html_63dea2843322ffa9d2d23733f6329a27" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>香港</h4>             <p><b>路线:</b> 海陆并用</p>             <p><b>顺序:</b> 3</p>             <p><b>日期:</b> 1938-02</p>             <p><b>描述:</b> 乘船中转，部分师生经此</p>         </div>         </div>`)[0];
+                popup_2c2cb2c3f3ff6d102dd4e675a122c3d0.setContent(html_63dea2843322ffa9d2d23733f6329a27);
+            
+        
+
+        marker_157c592ec0f92e889c0b3d5db0d51f54.bindPopup(popup_2c2cb2c3f3ff6d102dd4e675a122c3d0)
+        ;
+
+        
+    
+    
+            marker_157c592ec0f92e889c0b3d5db0d51f54.bindTooltip(
+                `<div>
+                     香港 - 海陆并用
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_157c592ec0f92e889c0b3d5db0d51f54.setIcon(icon_191517e5354e4244b9dbc11748aad547);
+            
+    
+            var marker_3784493f46ba4dadb200d925dee18153 = L.marker(
+                [20.8561, 106.6822],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_e8f68bae4c8149ca131b5341746e8fcd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_196a1cc2eaae8381c5eb2e8faf60faa8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_873e990f0cbf06c4bf2cb7c4f6be48c0 = $(`<div id="html_873e990f0cbf06c4bf2cb7c4f6be48c0" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>海防</h4>             <p><b>路线:</b> 海陆并用</p>             <p><b>顺序:</b> 4</p>             <p><b>日期:</b> 1938-03</p>             <p><b>描述:</b> 越南重要港口</p>         </div>         </div>`)[0];
+                popup_196a1cc2eaae8381c5eb2e8faf60faa8.setContent(html_873e990f0cbf06c4bf2cb7c4f6be48c0);
+            
+        
+
+        marker_3784493f46ba4dadb200d925dee18153.bindPopup(popup_196a1cc2eaae8381c5eb2e8faf60faa8)
+        ;
+
+        
+    
+    
+            marker_3784493f46ba4dadb200d925dee18153.bindTooltip(
+                `<div>
+                     海防 - 海陆并用
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3784493f46ba4dadb200d925dee18153.setIcon(icon_e8f68bae4c8149ca131b5341746e8fcd);
+            
+    
+            var marker_b034fe0870d3f3b37a8254878cdd8245 = L.marker(
+                [21.0278, 105.8342],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_0a2a0bf0a2928c61a69f54844ef8ae0d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0dd03c55de3578ab9e30857fbc208f19 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bf4ae659b5ada4a2357803e3b8281252 = $(`<div id="html_bf4ae659b5ada4a2357803e3b8281252" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>河内</h4>             <p><b>路线:</b> 海陆并用</p>             <p><b>顺序:</b> 5</p>             <p><b>日期:</b> 1938-03</p>             <p><b>描述:</b> 滇越铁路起点</p>         </div>         </div>`)[0];
+                popup_0dd03c55de3578ab9e30857fbc208f19.setContent(html_bf4ae659b5ada4a2357803e3b8281252);
+            
+        
+
+        marker_b034fe0870d3f3b37a8254878cdd8245.bindPopup(popup_0dd03c55de3578ab9e30857fbc208f19)
+        ;
+
+        
+    
+    
+            marker_b034fe0870d3f3b37a8254878cdd8245.bindTooltip(
+                `<div>
+                     河内 - 海陆并用
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b034fe0870d3f3b37a8254878cdd8245.setIcon(icon_0a2a0bf0a2928c61a69f54844ef8ae0d);
+            
+    
+            var marker_7f43f247d2df396ac4da06f7bf04200d = L.marker(
+                [25.0436, 102.7001],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_3dadb06d6bb180a8414484f2f4f20ec6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8c4e57373aaf37e0a44b525c49b759b2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bd2370d16b871a87309a0afd06fb52ac = $(`<div id="html_bd2370d16b871a87309a0afd06fb52ac" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>昆明</h4>             <p><b>路线:</b> 海陆并用</p>             <p><b>顺序:</b> 6</p>             <p><b>日期:</b> 1938-04</p>             <p><b>描述:</b> 联大终点</p>         </div>         </div>`)[0];
+                popup_8c4e57373aaf37e0a44b525c49b759b2.setContent(html_bd2370d16b871a87309a0afd06fb52ac);
+            
+        
+
+        marker_7f43f247d2df396ac4da06f7bf04200d.bindPopup(popup_8c4e57373aaf37e0a44b525c49b759b2)
+        ;
+
+        
+    
+    
+            marker_7f43f247d2df396ac4da06f7bf04200d.bindTooltip(
+                `<div>
+                     昆明 - 海陆并用
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7f43f247d2df396ac4da06f7bf04200d.setIcon(icon_3dadb06d6bb180a8414484f2f4f20ec6);
+            
+    
+            var poly_line_70a64950a55d1514f551d19cab115eb1 = L.polyline(
+                [[28.2282, 112.9388], [25.2345, 110.1795], [22.819, 108.365], [22.0943, 106.7564], [21.0278, 105.8342], [25.0436, 102.7001]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+        var popup_cad2528c8ba1bfb8073afcee11281d5f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe598a6503fbcd5d4250d84257d1670f = $(`<div id="html_fe598a6503fbcd5d4250d84257d1670f" style="width: 100.0%; height: 100.0%;">路线: 教授团 (ID: 2)</div>`)[0];
+                popup_cad2528c8ba1bfb8073afcee11281d5f.setContent(html_fe598a6503fbcd5d4250d84257d1670f);
+            
+        
+
+        poly_line_70a64950a55d1514f551d19cab115eb1.bindPopup(popup_cad2528c8ba1bfb8073afcee11281d5f)
+        ;
+
+        
+    
+    
+            poly_line_70a64950a55d1514f551d19cab115eb1.bindTooltip(
+                `<div>
+                     点击查看教授团路线详情
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_50b6544c9a5696ed6df0e9d88256790c = L.marker(
+                [28.2282, 112.9388],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_71a68288383873592d72b2a1e48cf2eb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3e0aea515f3169bccf05cefbe9d09051 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_32c599d9a169bdacb35d290c8e4fdcc2 = $(`<div id="html_32c599d9a169bdacb35d290c8e4fdcc2" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>长沙</h4>             <p><b>路线:</b> 教授团</p>             <p><b>顺序:</b> 1</p>             <p><b>日期:</b> 1938-02</p>             <p><b>描述:</b> 冯友兰、朱自清等教授出发</p>         </div>         </div>`)[0];
+                popup_3e0aea515f3169bccf05cefbe9d09051.setContent(html_32c599d9a169bdacb35d290c8e4fdcc2);
+            
+        
+
+        marker_50b6544c9a5696ed6df0e9d88256790c.bindPopup(popup_3e0aea515f3169bccf05cefbe9d09051)
+        ;
+
+        
+    
+    
+            marker_50b6544c9a5696ed6df0e9d88256790c.bindTooltip(
+                `<div>
+                     长沙 - 教授团
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_50b6544c9a5696ed6df0e9d88256790c.setIcon(icon_71a68288383873592d72b2a1e48cf2eb);
+            
+    
+            var marker_935249f2ed44278b21907990cbf2e5c2 = L.marker(
+                [25.2345, 110.1795],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_0e458b20b6043dc73b6347512f9b5b78 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5b7952439550dd0c1eaa1f258ea17608 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5310b13ec3b23c82a343745e165444af = $(`<div id="html_5310b13ec3b23c82a343745e165444af" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>桂林</h4>             <p><b>路线:</b> 教授团</p>             <p><b>顺序:</b> 2</p>             <p><b>日期:</b> 1938-02</p>             <p><b>描述:</b> 途经城市</p>         </div>         </div>`)[0];
+                popup_5b7952439550dd0c1eaa1f258ea17608.setContent(html_5310b13ec3b23c82a343745e165444af);
+            
+        
+
+        marker_935249f2ed44278b21907990cbf2e5c2.bindPopup(popup_5b7952439550dd0c1eaa1f258ea17608)
+        ;
+
+        
+    
+    
+            marker_935249f2ed44278b21907990cbf2e5c2.bindTooltip(
+                `<div>
+                     桂林 - 教授团
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_935249f2ed44278b21907990cbf2e5c2.setIcon(icon_0e458b20b6043dc73b6347512f9b5b78);
+            
+    
+            var marker_63898ef75f126e431a19cb9e31d986ee = L.marker(
+                [22.819, 108.365],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_260820cb1cb66d8e673ea37891747244 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3d451b4452b996757a657416f47faed3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7b632551a9e2ab3ec9ee17266e649b7d = $(`<div id="html_7b632551a9e2ab3ec9ee17266e649b7d" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>南宁</h4>             <p><b>路线:</b> 教授团</p>             <p><b>顺序:</b> 3</p>             <p><b>日期:</b> 1938-03</p>             <p><b>描述:</b> 途经城市</p>         </div>         </div>`)[0];
+                popup_3d451b4452b996757a657416f47faed3.setContent(html_7b632551a9e2ab3ec9ee17266e649b7d);
+            
+        
+
+        marker_63898ef75f126e431a19cb9e31d986ee.bindPopup(popup_3d451b4452b996757a657416f47faed3)
+        ;
+
+        
+    
+    
+            marker_63898ef75f126e431a19cb9e31d986ee.bindTooltip(
+                `<div>
+                     南宁 - 教授团
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_63898ef75f126e431a19cb9e31d986ee.setIcon(icon_260820cb1cb66d8e673ea37891747244);
+            
+    
+            var marker_4f3233191e0ecd02b6112ee0ee3996da = L.marker(
+                [22.0943, 106.7564],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_68244163d6e38dec3b7bb1ab531f3b30 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ed6812d28236aec7cb6397e097c97166 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_71145dfe82234bb32fd0506d91725b7c = $(`<div id="html_71145dfe82234bb32fd0506d91725b7c" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>凭祥</h4>             <p><b>路线:</b> 教授团</p>             <p><b>顺序:</b> 4</p>             <p><b>日期:</b> 1938-03</p>             <p><b>描述:</b> 进入越南的关口</p>         </div>         </div>`)[0];
+                popup_ed6812d28236aec7cb6397e097c97166.setContent(html_71145dfe82234bb32fd0506d91725b7c);
+            
+        
+
+        marker_4f3233191e0ecd02b6112ee0ee3996da.bindPopup(popup_ed6812d28236aec7cb6397e097c97166)
+        ;
+
+        
+    
+    
+            marker_4f3233191e0ecd02b6112ee0ee3996da.bindTooltip(
+                `<div>
+                     凭祥 - 教授团
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4f3233191e0ecd02b6112ee0ee3996da.setIcon(icon_68244163d6e38dec3b7bb1ab531f3b30);
+            
+    
+            var marker_f4cdf9b8bda56c9f496029229d57bd9d = L.marker(
+                [21.0278, 105.8342],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_3f9c94b57abb082d103b41b407c46d02 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c91d5a8f1d4b72bb97454a176236b866 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1a436168978618a61f572dbd3b0f5412 = $(`<div id="html_1a436168978618a61f572dbd3b0f5412" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>河内</h4>             <p><b>路线:</b> 教授团</p>             <p><b>顺序:</b> 5</p>             <p><b>日期:</b> 1938-03</p>             <p><b>描述:</b> 中转，换乘火车</p>         </div>         </div>`)[0];
+                popup_c91d5a8f1d4b72bb97454a176236b866.setContent(html_1a436168978618a61f572dbd3b0f5412);
+            
+        
+
+        marker_f4cdf9b8bda56c9f496029229d57bd9d.bindPopup(popup_c91d5a8f1d4b72bb97454a176236b866)
+        ;
+
+        
+    
+    
+            marker_f4cdf9b8bda56c9f496029229d57bd9d.bindTooltip(
+                `<div>
+                     河内 - 教授团
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f4cdf9b8bda56c9f496029229d57bd9d.setIcon(icon_3f9c94b57abb082d103b41b407c46d02);
+            
+    
+            var marker_a0efdeb249be9b344f4bdf7446d71c20 = L.marker(
+                [25.0436, 102.7001],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_32a3639d35e4c93fd0e74689c8739a10 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_65db648d2bf848a9f573a7c8b21f84fb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_09f95f3033d3d36d20a89b4d849fc6cb = $(`<div id="html_09f95f3033d3d36d20a89b4d849fc6cb" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>昆明</h4>             <p><b>路线:</b> 教授团</p>             <p><b>顺序:</b> 6</p>             <p><b>日期:</b> 1938-04</p>             <p><b>描述:</b> 联大终点</p>         </div>         </div>`)[0];
+                popup_65db648d2bf848a9f573a7c8b21f84fb.setContent(html_09f95f3033d3d36d20a89b4d849fc6cb);
+            
+        
+
+        marker_a0efdeb249be9b344f4bdf7446d71c20.bindPopup(popup_65db648d2bf848a9f573a7c8b21f84fb)
+        ;
+
+        
+    
+    
+            marker_a0efdeb249be9b344f4bdf7446d71c20.bindTooltip(
+                `<div>
+                     昆明 - 教授团
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a0efdeb249be9b344f4bdf7446d71c20.setIcon(icon_32a3639d35e4c93fd0e74689c8739a10);
+            
+    
+            var poly_line_61e5b7a9fbc16deb47368d8cc72bb704 = L.polyline(
+                [[28.2282, 112.9388], [28.4474, 110.3931], [26.6477, 106.6301], [26.2536, 105.9463], [25.4909, 103.7962], [25.0436, 102.7001]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+        var popup_e4adc3bb2d29215d0e68d03143fedc85 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_10555ddd707621de918699671bf9cdaf = $(`<div id="html_10555ddd707621de918699671bf9cdaf" style="width: 100.0%; height: 100.0%;">路线: 湘黔滇步行团 (ID: 3)</div>`)[0];
+                popup_e4adc3bb2d29215d0e68d03143fedc85.setContent(html_10555ddd707621de918699671bf9cdaf);
+            
+        
+
+        poly_line_61e5b7a9fbc16deb47368d8cc72bb704.bindPopup(popup_e4adc3bb2d29215d0e68d03143fedc85)
+        ;
+
+        
+    
+    
+            poly_line_61e5b7a9fbc16deb47368d8cc72bb704.bindTooltip(
+                `<div>
+                     点击查看湘黔滇步行团路线详情
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d3335a0e386f4d879f92a479a7f119cc = L.marker(
+                [28.2282, 112.9388],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_d8bd95a0154dae9b9a2c6116de32cad9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_68400d90962fad73b467e32b8bed40c9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dd19275ce9807cd11f79087bf0345bb0 = $(`<div id="html_dd19275ce9807cd11f79087bf0345bb0" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>长沙</h4>             <p><b>路线:</b> 湘黔滇步行团</p>             <p><b>顺序:</b> 1</p>             <p><b>日期:</b> 1938-02</p>             <p><b>描述:</b> 步行团出发</p>         </div>         </div>`)[0];
+                popup_68400d90962fad73b467e32b8bed40c9.setContent(html_dd19275ce9807cd11f79087bf0345bb0);
+            
+        
+
+        marker_d3335a0e386f4d879f92a479a7f119cc.bindPopup(popup_68400d90962fad73b467e32b8bed40c9)
+        ;
+
+        
+    
+    
+            marker_d3335a0e386f4d879f92a479a7f119cc.bindTooltip(
+                `<div>
+                     长沙 - 湘黔滇步行团
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d3335a0e386f4d879f92a479a7f119cc.setIcon(icon_d8bd95a0154dae9b9a2c6116de32cad9);
+            
+    
+            var marker_223c957f004370f8f05b5d7f839367ba = L.marker(
+                [28.4474, 110.3931],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_266ab9c54cec189c8dec306691873e29 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_15d80df77dfb33af41c6692ab4b2d3c0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_db98b1c1240a6902089d82aceeac34e3 = $(`<div id="html_db98b1c1240a6902089d82aceeac34e3" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>沅陵</h4>             <p><b>路线:</b> 湘黔滇步行团</p>             <p><b>顺序:</b> 2</p>             <p><b>日期:</b> 1938-03</p>             <p><b>描述:</b> 途经城市</p>         </div>         </div>`)[0];
+                popup_15d80df77dfb33af41c6692ab4b2d3c0.setContent(html_db98b1c1240a6902089d82aceeac34e3);
+            
+        
+
+        marker_223c957f004370f8f05b5d7f839367ba.bindPopup(popup_15d80df77dfb33af41c6692ab4b2d3c0)
+        ;
+
+        
+    
+    
+            marker_223c957f004370f8f05b5d7f839367ba.bindTooltip(
+                `<div>
+                     沅陵 - 湘黔滇步行团
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_223c957f004370f8f05b5d7f839367ba.setIcon(icon_266ab9c54cec189c8dec306691873e29);
+            
+    
+            var marker_cbffeaa3ca7ba051980a43445487c319 = L.marker(
+                [26.6477, 106.6301],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_c9d5b495371c0467df579cc36b1d9d04 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a5a6ede60d8ed4bc0284086bca173b9f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_83437b296d7cca9790671eaf1e63bea0 = $(`<div id="html_83437b296d7cca9790671eaf1e63bea0" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>贵阳</h4>             <p><b>路线:</b> 湘黔滇步行团</p>             <p><b>顺序:</b> 3</p>             <p><b>日期:</b> 1938-04</p>             <p><b>描述:</b> 途经城市</p>         </div>         </div>`)[0];
+                popup_a5a6ede60d8ed4bc0284086bca173b9f.setContent(html_83437b296d7cca9790671eaf1e63bea0);
+            
+        
+
+        marker_cbffeaa3ca7ba051980a43445487c319.bindPopup(popup_a5a6ede60d8ed4bc0284086bca173b9f)
+        ;
+
+        
+    
+    
+            marker_cbffeaa3ca7ba051980a43445487c319.bindTooltip(
+                `<div>
+                     贵阳 - 湘黔滇步行团
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cbffeaa3ca7ba051980a43445487c319.setIcon(icon_c9d5b495371c0467df579cc36b1d9d04);
+            
+    
+            var marker_a649f2cb18ca5028af62783b81ae3946 = L.marker(
+                [26.2536, 105.9463],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_6282ee0dd12142471973cf3b80d0269e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_64acbfd4dc6c9cb707eb838cb8fb6d62 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0d0ac36c3eca965b4a94508dd16b022d = $(`<div id="html_0d0ac36c3eca965b4a94508dd16b022d" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>安顺</h4>             <p><b>路线:</b> 湘黔滇步行团</p>             <p><b>顺序:</b> 4</p>             <p><b>日期:</b> 1938-04</p>             <p><b>描述:</b> 途经城市</p>         </div>         </div>`)[0];
+                popup_64acbfd4dc6c9cb707eb838cb8fb6d62.setContent(html_0d0ac36c3eca965b4a94508dd16b022d);
+            
+        
+
+        marker_a649f2cb18ca5028af62783b81ae3946.bindPopup(popup_64acbfd4dc6c9cb707eb838cb8fb6d62)
+        ;
+
+        
+    
+    
+            marker_a649f2cb18ca5028af62783b81ae3946.bindTooltip(
+                `<div>
+                     安顺 - 湘黔滇步行团
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a649f2cb18ca5028af62783b81ae3946.setIcon(icon_6282ee0dd12142471973cf3b80d0269e);
+            
+    
+            var marker_a96895abb9ab853fa2ec946400bc7958 = L.marker(
+                [25.4909, 103.7962],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_f6d6e48d31374715ecb512b5e9f3771b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3be113462e43cd16d6e3d21ca804d47d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b218641bbbb58c12f53663f218e38199 = $(`<div id="html_b218641bbbb58c12f53663f218e38199" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>曲靖</h4>             <p><b>路线:</b> 湘黔滇步行团</p>             <p><b>顺序:</b> 5</p>             <p><b>日期:</b> 1938-04</p>             <p><b>描述:</b> 途经城市</p>         </div>         </div>`)[0];
+                popup_3be113462e43cd16d6e3d21ca804d47d.setContent(html_b218641bbbb58c12f53663f218e38199);
+            
+        
+
+        marker_a96895abb9ab853fa2ec946400bc7958.bindPopup(popup_3be113462e43cd16d6e3d21ca804d47d)
+        ;
+
+        
+    
+    
+            marker_a96895abb9ab853fa2ec946400bc7958.bindTooltip(
+                `<div>
+                     曲靖 - 湘黔滇步行团
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a96895abb9ab853fa2ec946400bc7958.setIcon(icon_f6d6e48d31374715ecb512b5e9f3771b);
+            
+    
+            var marker_4052a014bc2336b7d9530deb70c9d97f = L.marker(
+                [25.0436, 102.7001],
+                {
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var icon_a6073f7972948382dc45b70cd555a14f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_962b11c353d7d7ae399f6df14e713c72 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fd7d5e5c75c42cdfa31b4795f0c84e52 = $(`<div id="html_fd7d5e5c75c42cdfa31b4795f0c84e52" style="width: 100.0%; height: 100.0%;">         <div style="width: 250px;">             <h4>昆明</h4>             <p><b>路线:</b> 湘黔滇步行团</p>             <p><b>顺序:</b> 6</p>             <p><b>日期:</b> 1938-04-01</p>             <p><b>描述:</b> 联大终点，步行团胜利抵达</p>         </div>         </div>`)[0];
+                popup_962b11c353d7d7ae399f6df14e713c72.setContent(html_fd7d5e5c75c42cdfa31b4795f0c84e52);
+            
+        
+
+        marker_4052a014bc2336b7d9530deb70c9d97f.bindPopup(popup_962b11c353d7d7ae399f6df14e713c72)
+        ;
+
+        
+    
+    
+            marker_4052a014bc2336b7d9530deb70c9d97f.bindTooltip(
+                `<div>
+                     昆明 - 湘黔滇步行团
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4052a014bc2336b7d9530deb70c9d97f.setIcon(icon_a6073f7972948382dc45b70cd555a14f);
+            
+    
+            var measure_control_e1b2be3916db1812c287d9021ab04048 = new L.Control.Measure(
+                {
+  "position": "topright",
+  "primaryLengthUnit": "meters",
+  "secondaryLengthUnit": "miles",
+  "primaryAreaUnit": "sqmeters",
+  "secondaryAreaUnit": "acres",
+});
+            map_27c813e09fb6872ebcc9ca1ef68bc00d.addControl(measure_control_e1b2be3916db1812c287d9021ab04048);
+
+            // Workaround for using this plugin with Leaflet>=1.8.0
+            // https://github.com/ljagis/leaflet-measure/issues/171
+            L.Control.Measure.include({
+                _setCaptureMarkerIcon: function () {
+                    // disable autopan
+                    this._captureMarker.options.autoPanOnFocus = false;
+                    // default function
+                    this._captureMarker.setIcon(
+                        L.divIcon({
+                            iconSize: this._map.getSize().multiplyBy(2)
+                        })
+                    );
+                },
+            });
+
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topleft",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+        
+    
+            var layer_control_c09c39d0688b877685e31d53f5e00b41_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_2b8439d16c169cb857664ab04e0d8062,
+                },
+                overlays :  {
+                },
+            };
+            let layer_control_c09c39d0688b877685e31d53f5e00b41 = L.control.layers(
+                layer_control_c09c39d0688b877685e31d53f5e00b41_layers.base_layers,
+                layer_control_c09c39d0688b877685e31d53f5e00b41_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_27c813e09fb6872ebcc9ca1ef68bc00d);
+
+        
+</script>
+</html>
