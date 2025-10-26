@@ -1,3 +1,4 @@
 # DHGA-501
-pre-class assignment
-哈哈哈哈
+## pre-class assignment
+First, I used references I collected last week to select the data needed to create the visualization roadmap, such as locations, relocation methods, longitude, latitude, time, and so on. Then I organized this information into a CSV file, which facilitates the creation of a visual map. Additionally, I utilized AI to generate code to create a visualized relocation route map. Through this route map, I demonstrated the respective relocation routes of different teams and marked the cities passed along the way. 
+I planned to display the moving tracks in chronological order to make this route map more explicit. Also, I want to replace the background map with the map of that time to better reflect the sense of the era. However, my technology has not been able to achieve the above plan yet, so I submitted a preliminary version of the route map. After that, I will try my best to improve it on the basis of this map, and display this route map clearly.
